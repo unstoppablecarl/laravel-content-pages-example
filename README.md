@@ -36,11 +36,15 @@ UnstoppableCarl\PagesExample\PagesExampleInstallerServiceProvider::class
 
 Example files will be coppied to `/app`, `/database`, and `/resources`
 
-`php artisan vendor:publish`
+```shell
+php artisan vendor:publish
+```
 
 *OR*
 
-`php artisan vendor:publish --provider "UnstoppableCarl\PagesExample\PagesExampleInstallerServiceProvider"`
+```shell
+php artisan vendor:publish --provider "UnstoppableCarl\PagesExample\PagesExampleInstallerServiceProvider"
+```
 
 By default `vendor:publish` will not overwrite existing files if you want it to you can add `--force` to overwrite existing.
 
@@ -48,13 +52,19 @@ By default `vendor:publish` will not overwrite existing files if you want it to 
 
 Setup create migrations table (If not done already).
 
-`php artisan migrate:install`
+```shell
+php artisan migrate:install
+```
 
 Migrate and seed example data.
 
-`php artisan migrate`
+```shell
+php artisan migrate
+```
 
-`php artisan db:seed --class=PagesSeeder`
+```shell
+php artisan db:seed --class=PagesSeeder
+```
 
 ### Setup service providers
 
@@ -84,7 +94,9 @@ In `config/pages.php`
 ## Result
 
 You should now be able to see a list of routes by doing:
-`php artisan route:list`
+```shell
+php artisan route:list
+```
 
 All of the routes listed should be publicly accessible. Look at the `pages` database table to see how the routes are set.
 
