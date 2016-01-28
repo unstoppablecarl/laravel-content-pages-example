@@ -27,13 +27,13 @@ class PagesServiceProvider extends ServiceProvider {
          */
         $this->registerPageTypeConfig([
             'basic' => [
-                'page_router'      => \App\PageRouters\Basic::class,
-                'admin_controller' => \App\Http\Controllers\Admin\PageType\Basic::class,
+                'page_route_binder' => \App\PageRouteBinders\Basic::class,
+                'admin_controller'  => \App\Http\Controllers\Admin\PageType\Basic::class,
             ],
 
             'articles' => [
-                'page_router'      => \App\PageRouters\Articles::class,
-                'admin_controller' => \App\Http\Controllers\Admin\PageType\Articles::class,
+                'page_route_binder' => \App\PageRouteBinders\Articles::class,
+                'admin_controller'  => \App\Http\Controllers\Admin\PageType\Articles::class,
             ]
         ]);
     }

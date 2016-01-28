@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PageRouters;
+namespace App\PageRouteBinders;
 
 use Illuminate\Routing\Router;
 
