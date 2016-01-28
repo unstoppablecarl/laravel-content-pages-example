@@ -1,19 +1,34 @@
 # Pages Example
 
-Example implementation of the Pages package
+Example implementation of https://github.com/unstoppablecarl/laravel-content-pages
 
 ## Installation
 
-Install the package via composer:
+Add the package via composer by adding the following to `composer.json` and running `composer update`.
 
-```php
-TBD
+```json
+{
+    "require": {
+        "unstoppablecarl/laravel-content-pages": "dev-master",
+        "unstoppablecarl/laravel-content-pages-example": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/unstoppablecarl/laravel-content-pages"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/unstoppablecarl/laravel-content-pages-example"
+        }
+    ],
+    "minimum-stability": "dev"
+}
 ```
-### Add service providers
+### Add example installer service provider
 Within `config/app.php` add the following line to the `providers` array.
 
 ```php
-UnstoppableCarl\Pages\PagesServiceProvider::class
 UnstoppableCarl\PagesExample\PagesExampleInstallerServiceProvider::class
 ```
 
@@ -27,9 +42,11 @@ Example files will be coppied to `/app`, `/database`, and `/resources`
 
 `php artisan vendor:publish --provider "UnstoppableCarl\PagesExample\PagesExampleInstallerServiceProvider"`
 
+By default `vendor:publish` will not overwrite existing files if you want it to you can add `--force` to overwrite existing.
+
 ### Setup DB
 
-If not already setup create migrations table.
+Setup create migrations table (If not done already).
 
 `php artisan migrate:install`
 
@@ -39,13 +56,18 @@ Migrate and seed example data.
 
 `php artisan db:seed --class=PagesSeeder`
 
-### Add app example pages service provider
+### Setup service providers
 
 Within `config/app.php` add the following line to the `providers` array.
+
 ```php
+// laravel-content-pages service provider
+UnstoppableCarl\Pages\PagesServiceProvider::class,
+
+// example app service provider installed by vendor:publish
 App\Providers\PagesServiceProvider::class
-```
-Now that all example files have been installed you may remove the following from the `providers` array in `config/app.php`.
+````
+Now that all example files have been installed, within `config/app.php` **remove** the following line from the `providers` array.
 ```php
 UnstoppableCarl\PagesExample\PagesExampleInstallerServiceProvider::class
 ```
@@ -59,7 +81,7 @@ In `config/pages.php`
     'enabled' => env('PAGES_ENABLED', true),
 ```
 
-## Conclusion
+## Result
 
 You should now be able to see a list of routes by doing:
 `php artisan route:list`
