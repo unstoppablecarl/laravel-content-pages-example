@@ -1,0 +1,22 @@
+{
+  "name": "unstoppablecarl/laravel-content-pages-example",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Carl Olsen",
+      "email": "unstoppableCarl@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+
+  },
+  "autoload": {
+    "psr-4": {
+      "UnstoppableCarl\\PagesExample\\": "src"
+    }
+  }
+}
