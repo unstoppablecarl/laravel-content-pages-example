@@ -10,7 +10,7 @@
     @foreach($articles as $article)
 <li>
 
-        <a href="{{action('Articles@single', $article)}}">{{$article['title']}}</a>
+        <a href="{{action('Articles@single', $article['id'])}}">{{$article['title']}}</a>
 </li>
     @endforeach
 
