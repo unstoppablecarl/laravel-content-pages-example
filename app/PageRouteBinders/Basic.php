@@ -9,7 +9,7 @@ use UnstoppableCarl\Pages\PageRouteBinder;
 class Basic extends PageRouteBinder {
 
     protected function bindPageRoutes(Router $router) {
-        $router->any('/', 'BasicPage@index');
+        $router->get('/', 'BasicPage@index');
     }
 
 }
