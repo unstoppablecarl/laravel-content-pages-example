@@ -31,28 +31,9 @@ class Articles extends Controller {
 
         $page = $request->get('page_model');
 
-
-        $routes = $router->getRoutes();
-
-        foreach($routes as $route){
-            if(
-                $route->getName() == 'page_id_12' &&
-                $route->getActionName() == 'App\Http\Controllers\Articles@single'
-            ){
-
-                dd($route);
-            }
-
-        }
-
-//        dd($router->getRoutes()->getByName('page_id_1'));
-//
-//        dd($request->getRouteResolver());
-//
-//        dd($request->route());
-
         $data = [
             'articles' => $this->stubArticleData,
+            'page' => $page,
         ];
 
         return view('public.page-types.articles.list', $data);

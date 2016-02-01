@@ -9,8 +9,7 @@
 
     @foreach($articles as $article)
 <li>
-
-        <a href="{{action('Articles@single', $article['id'])}}">{{$article['title']}}</a>
+        <a href="{{page_route($page, 'single', $article['id'])}}">{{$article['title']}}</a>
 </li>
     @endforeach
 
