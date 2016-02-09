@@ -34,7 +34,12 @@ class PagesServiceProvider extends ServiceProvider {
             'articles' => [
                 'page_route_binder' => \App\PageRouteBinders\Articles::class,
                 'admin_controller'  => \App\Http\Controllers\Admin\PageType\Articles::class,
-            ]
+            ],
+
+            'contact' => [
+                'page_route_binder' => \App\PageRouteBinders\Contact::class,
+                'admin_controller'  => \App\Http\Controllers\Admin\PageType\Contact::class,
+            ],
         ]);
     }
 
