@@ -21,6 +21,10 @@
         @if(isset($pageType))
         <h4>
             Page Type: <span class="text-muted">{{$pageType}}</span>
+
+            @if(isset($page))
+                <a href="{{url($page->path)}}" class="btn btn-link">View Page</a>
+            @endif
         </h4>
         @endif
     @show
