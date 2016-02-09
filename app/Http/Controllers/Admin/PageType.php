@@ -10,7 +10,17 @@ use App\Models\Page;
 
 class PageType extends Controller {
 
+    /**
+     * The page type string name used in the 'page_types' array in /config/pages.php
+     * @var string
+     */
     protected $pageType;
+
+    /**
+     * Dir path to admin views for this page type
+     * @var string
+     */
+    protected $viewDir;
 
     public function create(Request $request) {
 
@@ -74,12 +84,24 @@ class PageType extends Controller {
         ], $data);
     }
 
+    /**
+     * Redirect to an action in this controller
+     * @param string $action
+     * @param array $parameters
+     * @param int   $status
+     * @param array $headers
+     * @return \Illuminate\Http\RedirectResponse
+     */
     protected function redirectAction($action, $parameters = [], $status = 302, $headers = []){
         return redirect()->action('Admin\PageType@' . $action, $parameters, $status, $headers);
     }
 
+    protected function viewDir(){
+        return $this->viewDir ?: 'admin::page-types.' . $this->pageType;
+    }
+
     protected function view($view = null, $data = [], $mergeData = []){
-        $path = 'admin::page-types.' . $this->pageType;
+        $path = $this->viewDir();
         if($view){
             $path .= '.' . $view;
         }
