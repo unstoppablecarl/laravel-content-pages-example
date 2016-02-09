@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\PageTypeControllerInfo;
@@ -26,10 +27,7 @@ class Articles extends Controller {
         ]
     ];
 
-    public function all(Request $request, Router $router) {
-
-
-        $page = $request->get('page_model');
+    public function all(Request $request, Router $router, Page $page) {
 
         $data = [
             'articles' => $this->stubArticleData,
@@ -37,14 +35,11 @@ class Articles extends Controller {
         ];
 
         return view('public.page-types.articles.list', $data);
-
-//        return $this->getInfo($request, __CLASS__, __FUNCTION__);
-
     }
 
-    public function single(Request $request) {
+    public function single(Request $request, $article, Page $page) {
 
-        return $this->getInfo($request, __CLASS__, __FUNCTION__);
+        return $this->getInfo($request, $page, __CLASS__, __FUNCTION__);
 
     }
 }

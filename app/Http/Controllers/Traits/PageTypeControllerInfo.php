@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Traits;
 
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 trait PageTypeControllerInfo {
 
-    public function getInfo(Request $request, $class, $function) {
-
-        $page = $request->get('page_model');
+    public function getInfo(Request $request, Page $page, $class, $function) {
 
         $route     = $request->route();
         $routeInfo = ['path' => $route->getPath()];
