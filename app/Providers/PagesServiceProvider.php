@@ -53,7 +53,8 @@ class PagesServiceProvider extends ServiceProvider {
 
         $view->addNamespace('admin', resource_path('views/admin'));
 
-        $router->model('page', Page::class);
+        // route model binding for admin routes
+        $router->model('content_page', Page::class);
 
         $this->bootAdminRoutes($router);
     }
@@ -70,7 +71,8 @@ class PagesServiceProvider extends ServiceProvider {
          */
         $router->group([
             'namespace' => 'App\Http\Controllers',
-            'prefix'    => 'admin'
+            'prefix'    => 'admin',
+            'middleware' => ['web'],
         ], function (Router $router) {
 
             $router->get('/pages', [
@@ -95,25 +97,25 @@ class PagesServiceProvider extends ServiceProvider {
                 'middleware' => AdminPageControllerCreate::class,
             ]);
 
-            $router->get('/pages/update/{page}', [
+            $router->get('/pages/update/{content_page}', [
                 'as'         => 'admin.pages.update',
                 'uses'       => 'Admin\PageType@update',
                 'middleware' => AdminPageController::class,
             ]);
 
-            $router->post('/pages/update/{page}', [
+            $router->post('/pages/update/{content_page}', [
                 'as'         => 'admin.pages.update',
                 'uses'       => 'Admin\PageType@updatePost',
                 'middleware' => AdminPageController::class,
             ]);
 
-            $router->get('/pages/delete/{page}', [
+            $router->get('/pages/delete/{content_page}', [
                 'as'         => 'damin.pages.delete',
                 'uses'       => 'Admin\PageType@delete',
                 'middleware' => AdminPageController::class,
             ]);
 
-            $router->post('/pages/delete/{page}', [
+            $router->post('/pages/delete/{content_page}', [
                 'as'         => 'damin.pages.delete:post',
                 'uses'       => 'Admin\PageType@deletePost',
                 'middleware' => AdminPageController::class,
