@@ -55,6 +55,14 @@ class PagesSeeder extends Seeder
                 'meta' => null,
             ],
 
+            [
+                'path' => 'contact-us',
+                'page_type' => 'contact',
+                'content' => 'This is the contact page content',
+                'meta' => null,
+            ],
+
+
         ];
 
         foreach($examplePages as $pageData){
