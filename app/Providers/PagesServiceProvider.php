@@ -109,7 +109,7 @@ class PagesServiceProvider extends ServiceProvider {
             ]);
 
             $router->post('/pages/update/{content_page}', [
-                'as'         => 'admin.pages.update',
+                'as'         => 'admin.pages.update:post',
                 'uses'       => 'Admin\PageType@updatePost',
                 'middleware' => AdminPageController::class,
             ]);
