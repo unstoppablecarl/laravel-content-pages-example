@@ -93,13 +93,13 @@ class PagesServiceProvider extends ServiceProvider {
             $router->get('/pages/create/{page_type}', [
                 'as'         => 'admin.pages.create',
                 'uses'       => 'Admin\PageType@create',
-                'middleware' => AdminPageControllerCreate::class,
+                'middleware' => AdminPageController::class . ':1',
             ]);
 
             $router->post('/pages/create/{page_type}', [
                 'as'         => 'admin.pages.create:post',
                 'uses'       => 'Admin\PageType@createPost',
-                'middleware' => AdminPageControllerCreate::class,
+                'middleware' => AdminPageController::class . ':1',
             ]);
 
             $router->get('/pages/update/{content_page}', [
