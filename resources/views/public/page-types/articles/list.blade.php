@@ -5,6 +5,9 @@
 
 
 @section('content')
+
+    {{array_get($page->meta, 'content_before_list')}}
+
 <ul>
 
     @foreach($articles as $article)
@@ -15,6 +18,6 @@
 
 </ul>
 
-
+    {{array_get($page->meta, 'content_after_list')}}
 
 @endsection

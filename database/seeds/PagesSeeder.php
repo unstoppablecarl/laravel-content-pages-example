@@ -52,7 +52,10 @@ class PagesSeeder extends Seeder
                 'path' => 'industry/news',
                 'page_type' => 'articles',
                 'content' => 'This is the articles page content',
-                'meta' => null,
+                'meta' => [
+                    'content_before_list' => 'Content before list',
+                    'content_after_list' => 'Content after list',
+                ],
             ],
 
             [
@@ -61,7 +64,6 @@ class PagesSeeder extends Seeder
                 'content' => 'This is the contact page content',
                 'meta' => null,
             ],
-
 
         ];
 

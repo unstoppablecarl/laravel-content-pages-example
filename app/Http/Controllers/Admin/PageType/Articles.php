@@ -10,15 +10,21 @@ class Articles extends PageType {
 
     protected $pageType = 'articles';
 
+    public function createPose(Request $request) {
+
+        $page = new Page();
+        $page->fill($request->all());
+        $page->page_type = $this->pageType;
+        $page->meta = $request->get('meta', []);
+        $page->save();
+
+        return $this->redirectAction('update', $page);
+    }
 
     public function updatePost(Request $request, Page $page) {
 
         $page->fill($request->all());
-
-        $meta = $request->get('meta', []);
-
         $page->meta = $request->get('meta', []);
-//        dd($page);
         $page->save();
 
         return $this->redirectAction('update', $page);
