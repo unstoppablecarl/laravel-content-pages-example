@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('admin.page-types.basic.form', [
+    @include('admin.page-types.articles.form', [
     'action' => action('Admin\PageType@createPost', $pageType),
     'submitBtn' => 'Create'
     ])

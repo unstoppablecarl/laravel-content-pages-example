@@ -22,7 +22,7 @@
         <h4>
             Page Type: <span class="text-muted">{{$pageType}}</span>
 
-            @if(isset($page))
+            @if(isset($page) && $page->path)
                 <a href="{{url($page->path)}}" class="btn btn-link">View Page</a>
             @endif
         </h4>
