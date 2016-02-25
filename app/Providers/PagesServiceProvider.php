@@ -115,13 +115,13 @@ class PagesServiceProvider extends ServiceProvider {
             ]);
 
             $router->get('/pages/delete/{content_page}', [
-                'as'         => 'damin.pages.delete',
+                'as'         => 'admin.pages.delete',
                 'uses'       => 'Admin\PageType@delete',
                 'middleware' => AdminPageController::class,
             ]);
 
             $router->post('/pages/delete/{content_page}', [
-                'as'         => 'damin.pages.delete:post',
+                'as'         => 'admin.pages.delete:post',
                 'uses'       => 'Admin\PageType@deletePost',
                 'middleware' => AdminPageController::class,
             ]);
